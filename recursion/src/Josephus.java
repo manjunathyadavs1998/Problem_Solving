@@ -10,6 +10,13 @@ public class Josephus {
         int y=(x+k)%n;
         return y;
     }
+    public static int findTheWinnerIterative(int n, int k){
+        int ans = 0;
+        for(int i=2;i<=n;i++){
+            ans = (ans + k) % i;
+        }
+        return ans+1;
+    }
 
     public static void main(String[] args) {
         int alive=findTheWinner(7, 3);
