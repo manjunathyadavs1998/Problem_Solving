@@ -101,6 +101,33 @@ public class KthLargestElement {
         return res;
 
     }
+    /*
+    public ListNode mergeKLists(ListNode[] lists) {
+
+        for(ListNode curr:lists){
+            //ListNode curr=lists[i];
+            if(curr!=null){
+                pq.offer(curr);
+            }
+        }
+        ListNode dummy=new ListNode(-1);
+        ListNode tail=dummy;
+        if(pq.isEmpty()) return null;
+        // ListNode root=new ListNode(pq.poll());
+        //ListNode temp=root;
+        while(!pq.isEmpty()){
+            ListNode l=pq.poll();
+            tail.next=l;
+            tail=tail.next;
+            if(l.next!=null) pq.offer(l.next);
+        }
+        //System.out.print(pq.poll()+" ");
+        return dummy.next;
+
+
+    }
+
+     */
 
     public static void main(String[] args) {
         int[] nums = {3,2,1,5,6,4};
