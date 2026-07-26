@@ -1,8 +1,6 @@
 package Heaps;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class KthLargestElement {
     public int findKthLargest(int[] nums, int k) {
@@ -59,6 +57,33 @@ public class KthLargestElement {
         }
 
         return ans;
+    }
+
+    public List<String> topKFrequent(String[] words, int k) {
+        Map<String, Integer> map = new HashMap<>();
+
+        for (String w : words) {
+            map.put(w, map.getOrDefault(w, 0) + 1);
+        }
+        PriorityQueue<Map.Entry<String, Integer>> pq =
+                new PriorityQueue<>((a, b) -> {
+                    if (!a.getValue().equals(b.getValue())) {
+                        return a.getValue() - b.getValue();   // smaller frequency first
+                    }
+                    return b.getKey().compareTo(a.getKey());  // larger word first
+                });
+
+        for(Map.Entry<String, Integer>e:map.entrySet()){
+            pq.offer(e);
+            if(pq.size()>k) pq.poll();
+        }
+        List<String>result=new ArrayList<>();
+        while(!pq.isEmpty()){
+            Map.Entry<String, Integer>currEntry=pq.poll();
+            result.add(currEntry.getKey());
+        }
+        Collections.reverse(result);
+        return result ;
     }
 
     public static void main(String[] args) {
