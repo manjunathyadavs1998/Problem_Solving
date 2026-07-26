@@ -85,11 +85,29 @@ public class KthLargestElement {
         Collections.reverse(result);
         return result ;
     }
+    public int[][] kClosest(int[][] points, int k) {
+        PriorityQueue<int []>pq=new PriorityQueue<>((a,b)->((b[0]*b[0] +b[1]*b[1])-(a[0]*a[0]+a[1]*a[1])));
+        for(int[] p:points){
+            pq.offer(p);
+            if(pq.size()>k){
+                pq.poll();
+            }
+
+        }
+        int[][]res=new int[k][2];
+        for(int i=0;i<k;i++){
+            res[i]=pq.poll();
+        }
+        return res;
+
+    }
 
     public static void main(String[] args) {
         int[] nums = {3,2,1,5,6,4};
         KthLargestElement k=new KthLargestElement();
         System.out.println( k.findKthLargest(nums, 2, -1));
         System.out.println( k.findKthLargest(nums, 2));
+        double res=Math.sqrt(Math.pow(3,2)+Math.pow(3,2));
+        System.out.println(res);
     }
 }
