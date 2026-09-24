@@ -1,3 +1,5 @@
+package backtracking;
+
 public class MazeTraversal {
     public static int numberOfWays(int i, int j, int m, int n){
         if(i==m-1 || j==n-1) return 1;

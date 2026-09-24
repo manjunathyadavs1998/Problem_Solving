@@ -136,5 +136,6 @@ public class KthLargestElement {
         System.out.println( k.findKthLargest(nums, 2));
         double res=Math.sqrt(Math.pow(3,2)+Math.pow(3,2));
         System.out.println(res);
+        List<Integer>list=Arrays.asList(nums[0], nums[1]);
     }
 }
